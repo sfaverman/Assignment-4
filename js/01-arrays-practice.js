@@ -150,7 +150,7 @@ leastFavMovies[2] = "Alone in the dark";
 window.console.log(movies.concat(leastFavMovies).reverse());
 */
 //STEP 10
-
+/*
 var movies = [];
 movies[0] = "Cindarella";
 movies[1] = "The Godfather";
@@ -167,24 +167,165 @@ leastFavMovies[2] = "Alone in the dark";
 
 window.console.log(movies.concat(leastFavMovies).reverse());
 
-window.console.log("Last element is: " + movies.concat(leastFavMovies).reverse().slice(-1)[0]);
+window.console.log("Last element is: " + movies.concat(leastFavMovies).reverse().slice(-1)[0]); 
+*/    
 
 //STEP 11
+/*
+var movies = [];
+movies[0] = "Cindarella";
+movies[1] = "The Godfather";
+movies[2] = "Angelica";
+movies[3] = "Dirty Dancing";
+movies[4] = "Pretty Woman";
+movies[5] = "Romeo and Juliette";
+movies[6] = "Pirates of Caribbean";
 
+var leastFavMovies = [];
+leastFavMovies[0] = "Catwoman";
+leastFavMovies[1] = "Son of the Mask";
+leastFavMovies[2] = "Alone in the dark";
+
+window.console.log(movies.concat(leastFavMovies).reverse());
+
+window.console.log("First movie is: " + movies.concat(leastFavMovies).reverse()[0]);
+*/
 //STEP 12
+/*
+var movies = [];
+movies[0] = "Cindarella";
+movies[1] = "The Godfather";
+movies[2] = "Angelica";
+movies[3] = "Dirty Dancing";
+movies[4] = "Catwoman";
+movies[5] = "Son of the Mask";
+movies[6] = "Alone in the dark";
 
+//Remove movie "Son of the Mask", replace with movie "Pirates of Caribbean"
+
+movies[movies.indexOf("Son of the Mask")] = "Pirates of Caribbean";
+
+window.console.log(movies);
+
+*/
 //STEP 13
+/*
+var employee1 = [];
+employee1["id"] = 100;
+employee1["name"] = "Sofia Faverman";
+employee1["title"] = "Web Developer";
+employee1["department"] = "Engineering";
+employee1["isCurrent"] = true;
 
+var employee2 = [];
+employee2["id"] = 111;
+employee2["name"] = "Goldie Malamud";
+employee2["title"] = "Data Scientist";
+employee2["department"] = "Engineering";
+employee2["isCurrent"] = true;
+
+var employees = [employee1, employee2];
+
+window.console.log("Second employee\'s name is: " + employees[1]["name"]);
+*/
 //STEP 14
+/*
+var employee1 = [];
+employee1["id"] = 100;
+employee1["name"] = "Sofia Faverman";
+employee1["title"] = "Web Developer";
+employee1["department"] = "Engineering";
+employee1["isCurrent"] = true;
 
+var employee2 = [];
+employee2["id"] = 111;
+employee2["name"] = "Goldie Malamud";
+employee2["title"] = "Data Scientist";
+employee2["department"] = "Engineering";
+employee2["isCurrent"] = true;
+
+var employees = [employee1, employee2];
+
+var index;
+for (index in employees) { 
+   window.console.log(employees[index]["name"]);
+}
+*/
 //STEP 15
+/*
+var employee1 = [];
+employee1["id"] = 100;
+employee1["name"] = "Sofia Faverman";
+employee1["title"] = "Web Developer";
+employee1["department"] = "Engineering";
+employee1["isCurrent"] = true;
+
+var employee2 = [];
+employee2["id"] = 111;
+employee2["name"] = "Goldie Malamud";
+employee2["title"] = "Data Scientist";
+employee2["department"] = "Engineering";
+employee2["isCurrent"] = true;
+
+var employee3 = [];
+employee3["id"] = 113;
+employee3["name"] = "Arkady Shumsky";
+employee3["title"] = "CICS Systems Programmer";
+employee3["department"] = "Engineering";
+employee3["isCurrent"] = false;
+var employees = [employee1, employee2, employee3];
+
+var index;
+for (index in employees) { 
+     //window.console.log(employees[index]["isCurrent"]);
+   if (employees[index]["isCurrent"] !== false) {    
+     window.console.log(employees[index]["name"]);
+   }
+}
+*/
 
 //STEP 16
-
+/*
+var i;
+var movies = [ ["Cindarella", 2],
+               ["The Godfather", 3],
+               ["Angelica", 1],
+               ["Dirty Dancing", 5],
+               ["Pretty Woman", 4]
+             ];
+for (i = 0; i < movies.length; i++) {
+    var names = movies[i].filter(function(movie) {
+        "use strict"; 
+        return typeof movie === "string";
+    });
+window.console.log(names);
+}
+*/
 //STEP 17
+/*
+var employees = ["Zak","Jessica","Mark","Fred","Sally"];
+function showEmployee (employees) {
+    "use strict";
+    window.console.log(employees);
+    window.console.log("Emloyees:\n\n");
+    var index;
+    for (index in employees) {
+        window.console.log(employees[index]);
+    }
+
+}
+showEmployee(employees);
+*/    
 
 //STEP 18
+/*
+var array1 = [58, '', 'abcd', true, null, false, 0];
 
+var newList = array1.filter(function(item) {
+      return (item !== false && item !== 0 && item !== null);                           
+});
+window.console.log(newList); 
+*/
 //STEP 19
 
 //STEP 20
