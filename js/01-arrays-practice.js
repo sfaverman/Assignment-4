@@ -168,8 +168,7 @@ leastFavMovies[2] = "Alone in the dark";
 window.console.log(movies.concat(leastFavMovies).reverse());
 
 window.console.log("Last element is: " + movies.concat(leastFavMovies).reverse().slice(-1)[0]); 
-*/    
-
+*/
 //STEP 11
 /*
 var movies = [];
@@ -315,8 +314,7 @@ function showEmployee (employees) {
 
 }
 showEmployee(employees);
-*/    
-
+*/
 //STEP 18
 /*
 var array1 = [58, '', 'abcd', true, null, false, 0];
@@ -327,5 +325,30 @@ var newList = array1.filter(function(item) {
 window.console.log(newList); 
 */
 //STEP 19
+/*var array1 = [10, 20, 5, 35, 4, 18, 25, 100, 35, 2];
+function getRandom(list) {
+  "use strict";
+  window.console.log(list[Math.floor((Math.random()*list.length))]);
+}
+
+getRandom([2,3,5]);
+getRandom(array1);
+getRandom(array1);
+getRandom(array1);*/
 
 //STEP 20
+var array1 = [10, 20, 5, 35, 4, 18, 25, 100, 35, 2];
+function largestNumber(numArray) {
+    "use strict";
+    var largest = numArray[0], index;
+
+    for (index in numArray) {
+        if (numArray.hasOwnProperty(index)) {
+            if (numArray[index] > largest) {
+                largest = numArray[index];
+            }
+        }
+    }
+    return largest;
+}
+window.console.log("The largest number is: " + largestNumber(array1));
