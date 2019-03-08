@@ -11,8 +11,8 @@ function displayMenu() {
 }
 
 function viewProducts(arr) {
-    arr.sort();
     "use strict";
+    arr.sort();
     arr.forEach(function (product) {
         window.console.log(product[0] + ' ' + product[1] + '(' + product[2] + ')' + ' $' + product[3]);
 
@@ -22,22 +22,43 @@ function viewProducts(arr) {
 
 function updStock(arr) {
     "use strict";
-    var skuNumber, stockQuantity;
+    var skuNumber, stockQuantity, i, index;
 
     //GET A SKU NUMBER TO BE UPDATED
-     while (true) {
-        skuNumber = window.prompt("Enter sku number");
-        if(isNaN(skuNumber))  {
+sku_number_loop:
+    while (true) {
+        skuNumber = Number(window.prompt("Enter sku number"));
+        if (isNaN(skuNumber)) {
             window.alert("Please enter a valid sku number");
         } else {
-            window.console.log("thank you " + skuNumber);
-            break;
+              /* find index of skunumber in multidimensional array */
+            index = -1;
+            for (i = 0; i < arr.length; i++) {
+                //window.console.log(arr[i][0]);
+                if (arr[i][0] === skuNumber) {
+                    index = i;
+                    window.console.log("sku number", skuNumber, "found, index =", index);
+                    break sku_number_loop;
+                }
+            }
+            if (index === -1) {
+                window.alert("you entered wrong sku number:",skuNumber,"try again");
+            }
+       }
+     } // end while true loop getting a valid sku number
+stock_quantity_loop:
+    while(true) {
+         stockQuantity = Number(window.prompt("Enter a new stock quantity"));
+         if (isNaN(stockQuantity)) {
+             window.alert("Please enter a number for stock quantity");
+         } else {
+             arr[index][2] = stockQuantity;
+             window.alert("Stock quantity is updated for sku number",skuNumber);
+             break;
         }
-     }
-    /*arr.indexOf == -1*/
-    stockQuantity = window.prompt("Enter a new stock quantity");
+    } // end while loop for stockQuantity
 
-}
+} // end of function updStock
 
 function main() {
     "use strict";
@@ -61,7 +82,7 @@ function main() {
             } else {if (command === "exit") {
                 break;
             } else {
-                window.console.log("You entered invalid command");
+                window.alert("You entered invalid command");
             }
                    }
         } else {
@@ -72,5 +93,3 @@ function main() {
 
 } // end of main function
 main();
-
-
