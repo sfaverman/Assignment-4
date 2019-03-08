@@ -1,4 +1,6 @@
 /*eslint-env browser*/
+var storage, strProducts;
+var list = "";
 function displayMenu() {
     "use strict";
     window.console.log("Welcome to the Product Inventory Management System");
@@ -34,27 +36,25 @@ sku_number_loop:
               /* find index of skunumber in multidimensional array */
             index = -1;
             for (i = 0; i < arr.length; i++) {
-                //window.console.log(arr[i][0]);
                 if (arr[i][0] === skuNumber) {
                     index = i;
-                    window.console.log("sku number", skuNumber, "found, index =", index);
                     break sku_number_loop;
                 }
             }
             if (index === -1) {
-                window.alert("you entered wrong sku number:",skuNumber,"try again");
+                window.alert("you entered wrong sku number:", skuNumber, "try again");
             }
-       }
-     } // end while true loop getting a valid sku number
+        }
+    } // end while true loop getting a valid sku number
 stock_quantity_loop:
-    while(true) {
-         stockQuantity = Number(window.prompt("Enter a new stock quantity"));
-         if (isNaN(stockQuantity)) {
-             window.alert("Please enter a number for stock quantity");
-         } else {
-             arr[index][2] = stockQuantity;
-             window.alert("Stock quantity is updated for sku number",skuNumber);
-             break;
+    while (true) {
+        stockQuantity = Number(window.prompt("Enter a new stock quantity"));
+        if (isNaN(stockQuantity)) {
+            window.alert("Please enter a number for stock quantity");
+        } else {
+            arr[index][2] = stockQuantity;
+            window.alert("Stock quantity is updated for sku number " + skuNumber);
+            break;
         }
     } // end while loop for stockQuantity
 
@@ -66,12 +66,23 @@ function main() {
 
     displayMenu();
 
-    inventory = [[4824, "Shirt", 10, 15.99],
-                 [2233, "Hat", 12, 14.99],
-                 [6343, "Jeans", 22, 39.99],
-                 [9382, "Jacket", 5, 49.99],
-                 [3223, "Socks", 36, 9.99]
-                ];
+    //Check if localstorage contains data or a brand new user
+    if (localStorage.strProducts) {
+        // Converting string to array
+
+        inventory = JSON.parse(localStorage.strProducts);
+    } else {
+        //create a starttup inventory
+        inventory = [[4824, "Shirt", 10, 15.99],
+                     [2233, "Hat", 12, 14.99],
+                     [6343, "Jeans", 22, 39.99],
+                     [9382, "Jacket", 5, 49.99],
+                     [3223, "Socks", 36, 9.99]
+                    ];
+    }
+
+
+
     while (true) {
         command = window.prompt("Enter command");
         if (command !== null) {
@@ -80,6 +91,8 @@ function main() {
             } else if (command === "upd") {
                 updStock(inventory);
             } else {if (command === "exit") {
+                //* Converting arrays to string and saving to local storage
+                localStorage.strProducts = JSON.stringify(inventory);
                 break;
             } else {
                 window.alert("You entered invalid command");
@@ -93,3 +106,8 @@ function main() {
 
 } // end of main function
 main();
+//CHEETSHEET:
+//* Converting arrays to string:
+// strProducts = JSON.stringify(inventory);
+//* Converting string to array:
+// inventory = JSON.parse(strProducts);
